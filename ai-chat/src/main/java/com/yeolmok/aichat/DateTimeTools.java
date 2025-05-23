@@ -9,9 +9,12 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class DateTimeTools {
 
-    @Tool(description = "Returns the current time in ISO-8601 format")
-    public String getTime() {
+    @Tool(description = "Return current date and time in Korean")
+    public String getDateTime() {
         ZonedDateTime now = ZonedDateTime.now();
-        return now.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 M월 d일 HH시 mm분");
+        System.out.println(now);
+        System.out.println(now.format(formatter));
+        return now.format(formatter);
     }
 }
